@@ -1,85 +1,65 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/">
+        <img src="@/assets/img/camel.png" alt="logo" class="logo" />
+      </RouterLink>
+      <nav class="navbar">
+        <RouterLink to="/">Accueil</RouterLink>
+        <RouterLink to="/about">À Propos</RouterLink>
+        <RouterLink to="/projects">Projets</RouterLink>
+        <RouterLink to="/contact">Contact</RouterLink>
       </nav>
     </div>
   </header>
-
-  <RouterView />
+  <main class="centered">
+    <h1>Développeur Web Full Stack</h1>
+    <h2>Passionné par le développement web et les nouvelles technologies</h2>
+  </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<style scoped lang="scss">
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -50px;
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  height: 150px;
+  margin-right: 800px;
+  margin-left: -40px;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
   text-align: center;
-  margin-top: 2rem;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
+.navbar {
+  display: flex;
+  gap: 40px; 
+  margin-left: 90px;
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+  a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+    &:hover {
+      color: #f00;
+    }
   }
 }
 </style>
