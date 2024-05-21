@@ -18,10 +18,10 @@ Ce projet est mon portfolio professionnel. Il présente mes compétences, mes pr
 
 ## Comment le faire fonctionner 🔄
 
-1. Clonez ce dépôt avec `git clone <url-du-dépôt>`
-2. Naviguez vers le dossier du projet avec `cd <nom-du-dossier>`
+1. Clonez ce dépôt avec `git clone https://github.com/Camelllll/portfolio-pro.git`
+2. Naviguez vers le dossier du projet avec `cd Portfolio-pro`
 3. Installez les dépendances avec `npm install`
-4. Lancez le serveur de développement avec `npm run serve`
+4. Lancez le serveur de développement avec `npm run dev`
 5. Ouvrez votre navigateur et naviguez vers `http://localhost:8080`
 
 ## Contact 📞
