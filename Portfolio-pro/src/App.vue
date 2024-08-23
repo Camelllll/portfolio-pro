@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import AboutView from '@/views/AboutView.vue';
+import ProjectView from '@/views/ProjectView.vue';
+import ContactView from '@/views/ContactView.vue';
 </script>
 
 <template>
@@ -27,7 +29,25 @@ import AboutView from '@/views/AboutView.vue';
         </header>
         <main class="centered">
           <h1>Développeur Web Full Stack</h1>
-          <h2>Passionné par le<span class="color-span">développement web</span>  et les nouvelles technologies</h2>
+          <h2>Passionné par le 
+            <span class="letter color-span">d</span>
+            <span class="letter color-span">é</span>
+            <span class="letter color-span">v</span>
+            <span class="letter color-span">e</span>
+            <span class="letter color-span">l</span>
+            <span class="letter color-span">o</span>
+            <span class="letter color-span">p</span>
+            <span class="letter color-span">p</span>
+            <span class="letter color-span">e</span>
+            <span class="letter color-span">m</span>
+            <span class="letter color-span">e</span>
+            <span class="letter color-span">n</span>
+            <span class="letter color-span">t</span>
+            <span class="letter">&nbsp;</span>
+            <span class="letter color-span">w</span>
+            <span class="letter color-span">e</span>
+            <span class="letter color-span">b</span>
+            et les nouvelles technologies</h2>
           <div class="center-img">
             <img src="@/assets/img/mf-avatar.svg" alt="developer" />
           </div>
@@ -43,6 +63,10 @@ import AboutView from '@/views/AboutView.vue';
       <ProjectView />
     </section>
 
+    <section id="contact" class="section">
+      <ContactView />
+    </section>
+
   </div>
 </template>
 
@@ -51,6 +75,39 @@ import AboutView from '@/views/AboutView.vue';
 @import url('https://fonts.googleapis.com/css2?family=REM:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/gilroy-bold');
 
+// animation delay
+.letter:nth-child(1) { animation-delay: 0.1s; }
+.letter:nth-child(2) { animation-delay: 0.2s; }
+.letter:nth-child(3) { animation-delay: 0.3s; }
+.letter:nth-child(4) { animation-delay: 0.4s; }
+.letter:nth-child(5) { animation-delay: 0.5s; }
+.letter:nth-child(6) { animation-delay: 0.6s; }
+.letter:nth-child(7) { animation-delay: 0.7s; }
+.letter:nth-child(8) { animation-delay: 0.8s; }
+.letter:nth-child(9) { animation-delay: 0.9s; }
+.letter:nth-child(10) { animation-delay: 1s; }
+.letter:nth-child(11) { animation-delay: 1.1s; }
+.letter:nth-child(12) { animation-delay: 1.2s; }
+.letter:nth-child(13) { animation-delay: 1.3s; }
+.letter:nth-child(14) { animation-delay: 1.4s; }
+.letter:nth-child(15) { animation-delay: 1.5s; }
+.letter:nth-child(16) { animation-delay: 1.6s; }
+.letter:nth-child(17) { animation-delay: 1.7s; }
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: jumpIn 0.8s forwards;
+}
+
+// Key Frames
+@keyframes jumpIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 * {
   font-family: 'Gilroy-Bold', sans-serif;
@@ -163,7 +220,6 @@ import AboutView from '@/views/AboutView.vue';
   align-items: center;
   gap: 30px;
   margin-top: 20px;
-  
 
   a {
     text-decoration: none;
