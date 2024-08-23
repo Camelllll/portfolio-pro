@@ -1,29 +1,56 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { onMounted } from 'vue';
 import AboutView from '@/views/AboutView.vue';
 import ProjectView from '@/views/ProjectView.vue';
 import ContactView from '@/views/ContactView.vue';
+
+onMounted(() => {
+  const links = document.querySelectorAll('.navbar a, .navbar button');
+
+  links.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const targetId = link.getAttribute('href') ? link.getAttribute('href').substring(1) : null;
+
+      if (link.textContent.trim() === 'Contact') {
+        const contactElement = document.getElementById('contact');
+        if (contactElement) {
+          window.scrollTo({
+            top: contactElement.offsetTop + window.innerHeight * 2,
+            behavior: 'smooth'
+          });
+        }
+      } else if (targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
+});
 </script>
 
 <template>
   <div>
-    <section class="section home">
+    <section id="home" class="section home">
       <div class="content">
         <header>
           <div class="wrapper">
             <nav class="navbar">
-              <RouterLink to="/" class="title-link">
+              <a href="#home" class="title-link">
                 <h1 class="logo_title"> Camélien</h1>
                 <h2 class="subtitle_title">Développeur Web</h2>
-              </RouterLink>
+              </a>
 
-              <RouterLink to="/about">À Propos</RouterLink>
-              <RouterLink to="/projects">Projets</RouterLink>
-                <RouterLink to="/contact">
-                  <button class="btn">
-                    Contact
-                  </button>
-                </RouterLink>
+              <a href="#about">À Propos</a>
+              <a href="#projects">Projets</a>
+              <button class="btn">
+                Contact
+              </button>
             </nav>
           </div>
         </header>

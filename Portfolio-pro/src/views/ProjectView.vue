@@ -63,9 +63,63 @@
           </div>
         </div>
       </div>
-      <button class="btn">
-        Contact
-      </button>
+
+      <div class="project-card card-4">
+        <div class="project-card-inner">
+          <div class="project-card-front">
+            <div class="overlay"></div>
+            <div class="project-info">
+              <h3>Ammaé</h3>
+            </div>
+          </div>
+          <div class="project-card-back">
+            <div class="back-info">
+              <p>Création d'un site vitrine dynamique et attrayant 
+                pour une entreprise de service de massages à domicile.</p>
+              <a href="https://www.ammae.fr" target="_blank">
+                <button>Voir le projet</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card card-5">
+        <div class="project-card-inner">
+          <div class="project-card-front">
+            <div class="overlay"></div>
+            <div class="project-info">
+              <h3>Soon...</h3>
+            </div>
+          </div>
+          <div class="project-card-back">
+            <div class="back-info">
+              <p>ce projet est en cours de réalisation, il sera disponible très bientôt !</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card card-6">
+        <div class="project-card-inner">
+          <div class="project-card-front">
+            <div class="overlay"></div>
+            <div class="project-info">
+              <h3>Soon...</h3>
+            </div>
+          </div>
+          <div class="project-card-back">
+            <div class="back-info">
+              <p>ce projet est en cours de réalisation, il sera disponible très bientôt !</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-button-container">
+      <a href="https://github.com/Camelllll" target="_blank">
+        <button class="btn">En voir plus sur GitHub</button>
+      </a>
     </div>
   </div>
 </template>
@@ -75,6 +129,7 @@
   background-color: #fff;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 1;
@@ -112,7 +167,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
-  margin-top: 140vh;
+  margin-top: 200vh;
   z-index: 2;
   text-align: center;
   padding: 0 20px;
@@ -161,6 +216,18 @@
 
 .card-3 .project-card-front {
   background-image: url('@/assets/img/administratif.jpeg');
+}
+
+.card-4 .project-card-front {
+  background-image: url('@/assets/img/massage.jpg');
+}
+
+.card-5 .project-card-front {
+  background-image: url('@/assets/img/projetsoon.jpeg');
+}
+
+.card-6 .project-card-front {
+  background-image: url('@/assets/img/projetsoon2.jpg');
 }
 
 .project-card-back {
@@ -227,20 +294,33 @@
   }
 }
 
+.contact-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  margin-top: 50px;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
 .btn {
-  padding: 10px 20px;
-  background-color: transparent;
+  padding: 15px 30px;
+  background-color: #7510f6;
   border: 2px solid #7510f6;
-  color: #7510f6;
-  border-radius: 5px;
+  color: white;
+  border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'Gilroy-Bold', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
 
   &:hover {
-    background-color: #7510f6;
+    background-color: #37007f;
     color: white;
   }
 }
