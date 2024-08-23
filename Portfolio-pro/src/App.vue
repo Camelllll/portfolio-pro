@@ -1,85 +1,269 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { onMounted } from 'vue';
+import AboutView from '@/views/AboutView.vue';
+import ProjectView from '@/views/ProjectView.vue';
+import ContactView from '@/views/ContactView.vue';
+
+onMounted(() => {
+  const links = document.querySelectorAll('.navbar a, .navbar button');
+
+  links.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const targetId = link.getAttribute('href') ? link.getAttribute('href').substring(1) : null;
+
+      if (link.textContent.trim() === 'Contact') {
+        const contactElement = document.getElementById('contact');
+        if (contactElement) {
+          window.scrollTo({
+            top: contactElement.offsetTop + window.innerHeight * 2,
+            behavior: 'smooth'
+          });
+        }
+      } else if (targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
+});
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div>
+    <section id="home" class="section home">
+      <div class="content">
+        <header>
+          <div class="wrapper">
+            <nav class="navbar">
+              <a href="#home" class="title-link">
+                <h1 class="logo_title"> Camélien</h1>
+                <h2 class="subtitle_title">Développeur Web</h2>
+              </a>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+              <a href="#about">À Propos</a>
+              <a href="#projects">Projets</a>
+              <button class="btn">
+                Contact
+              </button>
+            </nav>
+          </div>
+        </header>
+        <main class="centered">
+          <h1>Développeur Web Full Stack</h1>
+          <h2>Passionné par le 
+            <span class="letter color-span">d</span>
+            <span class="letter color-span">é</span>
+            <span class="letter color-span">v</span>
+            <span class="letter color-span">e</span>
+            <span class="letter color-span">l</span>
+            <span class="letter color-span">o</span>
+            <span class="letter color-span">p</span>
+            <span class="letter color-span">p</span>
+            <span class="letter color-span">e</span>
+            <span class="letter color-span">m</span>
+            <span class="letter color-span">e</span>
+            <span class="letter color-span">n</span>
+            <span class="letter color-span">t</span>
+            <span class="letter">&nbsp;</span>
+            <span class="letter color-span">w</span>
+            <span class="letter color-span">e</span>
+            <span class="letter color-span">b</span>
+            et les nouvelles technologies</h2>
+          <div class="center-img">
+            <img src="@/assets/img/mf-avatar.svg" alt="developer" />
+          </div>
+        </main>
+      </div>
+    </section>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+    <section id="about" class="section">
+      <AboutView />
+    </section>
 
-  <RouterView />
+    <section id="projects" class="section">
+      <ProjectView />
+    </section>
+
+    <section id="contact" class="section">
+      <ContactView />
+    </section>
+
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+<style scoped lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=REM:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+// animation delay
+.letter:nth-child(1) { animation-delay: 0.1s; }
+.letter:nth-child(2) { animation-delay: 0.2s; }
+.letter:nth-child(3) { animation-delay: 0.3s; }
+.letter:nth-child(4) { animation-delay: 0.4s; }
+.letter:nth-child(5) { animation-delay: 0.5s; }
+.letter:nth-child(6) { animation-delay: 0.6s; }
+.letter:nth-child(7) { animation-delay: 0.7s; }
+.letter:nth-child(8) { animation-delay: 0.8s; }
+.letter:nth-child(9) { animation-delay: 0.9s; }
+.letter:nth-child(10) { animation-delay: 1s; }
+.letter:nth-child(11) { animation-delay: 1.1s; }
+.letter:nth-child(12) { animation-delay: 1.2s; }
+.letter:nth-child(13) { animation-delay: 1.3s; }
+.letter:nth-child(14) { animation-delay: 1.4s; }
+.letter:nth-child(15) { animation-delay: 1.5s; }
+.letter:nth-child(16) { animation-delay: 1.6s; }
+.letter:nth-child(17) { animation-delay: 1.7s; }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
+.letter {
   display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: jumpIn 0.8s forwards;
 }
 
-nav a:first-of-type {
-  border: 0;
+// Key Frames
+@keyframes jumpIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+* {
+  font-family: 'Gilroy-Bold', sans-serif;
+  font-weight: 400;
+}
+
+.background {
+  position: relative;
+  height: 100vh;
+}
+
+.color-span {
+  color: #7510f6;
+}
+
+.section {
+  height: 100vh;
+  position: relative;
+  background-color: #fff;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid #7510f6;
+  color: #7510f6;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Gilroy-Bold', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #7510f6;
+    color: white;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-link {
+  display: flex;
+  flex-direction: column;
+  color: #141c3a;
+  text-decoration: none;
+  margin-right: 790px;
+  margin-left: 80px;
+
+  .logo_title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: 'Gilroy-Bold', sans-serif;
+    font-weight: 400;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
+  .subtitle_title {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 0.3;
+    font-family: 'Gilroy-Bold', sans-serif;
+    font-weight: 400;
+    margin-left: 14px;
+    color: #7510f6;
+  }
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 89vh;
+  text-align: center;
+  color: #141c3a;
+  font-family: 'Gilroy-Medium', sans-serif;
+
+  h1 {
+    font-size: 44px;
+    font-weight: 700;
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+  h2 {
+    font-size: 24px;
+    font-weight: 400;
   }
+}
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+.center-img {
+  margin-top: 20px;
+  img {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
   }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+
+  a {
+    text-decoration: none;
+    color: #141c3a;
+    font-size: 16px;
+    font-family: 'Gilroy-Bold', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #7510f6;
+    }
+  }
+}
+
+#about {
+  background-color: #7510f6;
+  text-align: center;
 }
 </style>
