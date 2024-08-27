@@ -1,14 +1,14 @@
 <template>
   <div class="profile">
     <div class="profil-txt"> <br> <br>
-    <h1>Moi c'est Camélien, Ravi de te rencontrer !</h1> <br>
-    <p>
-      Salut ! je suis étudiant en BUT Métier du Multimédia et de l'internet, et très prochainement à l'ESGI
-      pour faire de la Cyber Sécurité ! Passionné par le développement web et les nouvelles technologies, je suis
-      toujours à la recherche de nouveaux projets à réaliser. J'aime apprendre de nouvelles choses et partager mes
-      connaissances avec les autres. Je suis également un grand fan de jeux vidéo et de musique.
-    </p>
-  </div>
+      <h1>Moi c'est Camélien, Ravi de te rencontrer !</h1> <br>
+      <p>
+        Salut ! je suis étudiant en BUT Métier du Multimédia et de l'internet, et très prochainement à l'ESGI
+        pour faire de la Cyber Sécurité ! Passionné par le développement web et les nouvelles technologies, je suis
+        toujours à la recherche de nouveaux projets à réaliser. J'aime apprendre de nouvelles choses et partager mes
+        connaissances avec les autres. Je suis également un grand fan de jeux vidéo et de musique.
+      </p>
+    </div>
     <div class="big-section">
       <div class="flex">
         <section class="section">
@@ -31,23 +31,23 @@
         </section>
 
         <section class="section">
-        <div class="card">
-          <div class="image-container">
-            <img src="@/assets/img/developpeur.png" alt="Icon">
-          </div>
-          <h2>Front-End</h2>
-          <p>
-            Passionné par la création d'interfaces utilisateur attrayantes et fonctionnelles.
-          </p> <br>
-          <h3>Langages que j'utilise :</h3>
-          <p>HTML</p>
-          <p>CSS</p>
-          <p>JavaScript</p>
-          <p>React native</p>
-          <p>Vue.js</p> <br>
-          <h3>CMS que j'utilise :</h3>
-          <p>WordPress</p>
-          <p>Webflow</p>
+          <div class="card">
+            <div class="image-container">
+              <img src="@/assets/img/developpeur.png" alt="Icon">
+            </div>
+            <h2>Front-End</h2>
+            <p>
+              Passionné par la création d'interfaces utilisateur attrayantes et fonctionnelles.
+            </p> <br>
+            <h3>Langages que j'utilise :</h3>
+            <p>HTML</p>
+            <p>CSS</p>
+            <p>JavaScript</p>
+            <p>React native</p>
+            <p>Vue.js</p> <br>
+            <h3>CMS que j'utilise :</h3>
+            <p>WordPress</p>
+            <p>Webflow</p>
           </div>
         </section>
 
@@ -79,12 +79,10 @@
 <style scoped>
 
 .big-section {
-  border-radius: 20px 20px 20px 20px;
+  border-radius: 20px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin-right: 50px;
-  margin-left: 50px;
-  margin-top: 100px;
+  margin: 100px 50px 0;
   position: relative;
   z-index: 1;
 }
@@ -96,7 +94,7 @@
 }
 
 .section {
-  width: 33.33%; 
+  width: 33.33%;
   height: 600px;
   padding: 20px;
   border: 0.2px solid #ebebeb;
@@ -133,21 +131,15 @@
 }
 
 .image-container {
-  width: 70px; 
+  width: 70px;
   height: 70px;
   border-radius: 50%;
   background-color: #5BE9B9;
   display: flex;
-  margin-left: 43%;
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-}
-
-.image-container img {
-  width: 30px;
-  height: 30px;
 }
 
 .profil-txt {
@@ -163,12 +155,68 @@
   p {
     font-size: 19px;
     color: white;
-    margin-top: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 10px 100px 0;
     font-weight: 400;
     font-family: "europa", sans-serif;
     line-height: 1.5;
+  }
+}
+
+/* Media queries pour le responsive */
+
+@media screen and (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  .section {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .profil-txt {
+    padding: 60px 20px;
+    margin: 0 20px;
+    
+    h1 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 10px;
+    }
+  }
+
+  .big-section {
+    margin: 50px 20px 0;
+  }
+}
+
+/* Pour les petits écrans (mobiles) */
+@media screen and (max-width: 480px) {
+
+  .profil-txt {
+    padding: 40px 10px;
+
+    h1 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+      margin: 10px;
+    }
+  }
+
+  .section {
+    padding: 15px;
+    height: 9cap;
+  }
+
+  .big-section {
+    margin: 30px 10px 0;
   }
 }
 </style>

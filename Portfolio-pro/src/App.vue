@@ -46,11 +46,13 @@ onMounted(() => {
                 <h2 class="subtitle_title">Développeur Web</h2>
               </a>
 
-              <a href="#about">À Propos</a>
-              <a href="#projects">Projets</a>
-              <button class="btn">
-                Contact
-              </button>
+              <div class="nav-links">
+                <a href="#about">À Propos</a>
+                <a href="#projects">Projets</a>
+                <button class="btn">
+                  Contact
+                </button>
+              </div>
             </nav>
           </div>
         </header>
@@ -183,6 +185,7 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
 }
 
 .title-link {
@@ -190,8 +193,6 @@ onMounted(() => {
   flex-direction: column;
   color: #141c3a;
   text-decoration: none;
-  margin-right: 790px;
-  margin-left: 80px;
 
   .logo_title {
     font-size: 30px;
@@ -221,6 +222,7 @@ onMounted(() => {
   text-align: center;
   color: #141c3a;
   font-family: 'Gilroy-Medium', sans-serif;
+  padding: 0 20px;
 
   h1 {
     font-size: 44px;
@@ -244,26 +246,95 @@ onMounted(() => {
 
 .navbar {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-links {
+  display: flex;
   align-items: center;
   gap: 30px;
-  margin-top: 20px;
+}
 
-  a {
-    text-decoration: none;
-    color: #141c3a;
-    font-size: 16px;
-    font-family: 'Gilroy-Bold', sans-serif;
-    font-weight: 500;
-    transition: all 0.3s ease;
+.nav-links a, .nav-links button {
+  text-decoration: none;
+  color: #141c3a;
+  font-size: 16px;
+  font-family: 'Gilroy-Bold', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
 
-    &:hover {
-      color: #7510f6;
-    }
+  &:hover {
+    color: #7510f6;
   }
 }
 
 #about {
   background-color: #7510f6;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .title-link {
+    margin: 0;
+    align-items: center;
+
+    .logo_title {
+      font-size: 24px;
+    }
+
+    .subtitle_title {
+      font-size: 10px;
+      margin-left: 0;
+    }
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .centered h1 {
+    font-size: 36px;
+  }
+
+  .centered h2 {
+    font-size: 18px;
+  }
+
+  .center-img img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    gap: 10px;
+  }
+
+  .centered h1 {
+    font-size: 28px;
+  }
+
+  .centered h2 {
+    font-size: 16px;
+  }
+
+  .center-img img {
+    width: 150px;
+    height: 150px;
+  }
 }
 </style>

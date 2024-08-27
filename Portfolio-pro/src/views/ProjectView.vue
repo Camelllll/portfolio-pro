@@ -56,7 +56,7 @@
           <div class="project-card-back">
             <div class="back-info">
               <p>Création de mon premier site web en 2022 pour l'entreprise TMA.</p>
-              <a href="https://www.google.com">
+              <a href="https://we.tl/t-O170MmxCmV">
                 <button>Voir le projet</button>
               </a>
             </div>
@@ -167,7 +167,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
-  margin-top: 200vh;
+  margin-top: 190vh;
   z-index: 2;
   text-align: center;
   padding: 0 20px;
@@ -323,5 +323,30 @@
     background-color: #37007f;
     color: white;
   }
+}
+
+@media screen and (max-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .project-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+  
 }
 </style>
