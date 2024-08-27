@@ -255,6 +255,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 30px;
+  margin-top: 10px;
 }
 
 .nav-links a, .nav-links button {
